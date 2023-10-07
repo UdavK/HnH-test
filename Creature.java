@@ -11,9 +11,10 @@ import java.util.Random;
  * @author david
  */
 public class Creature {
-    int atk;
-    int def;
-    double health;
+    private int atk;
+    private int def;
+    private double health;
+    private int[] dmg;
     
     Creature(int atk,int def, double health, int[]dmg){
         this.dmg=dmg;
@@ -24,10 +25,6 @@ public class Creature {
     Creature(){
         
     }
-   
-        
-    
-    int[] dmg;
     void Damage(Creature npc) throws Exception {
         
         if (this.health<=0){
@@ -57,6 +54,31 @@ public class Creature {
                 }
             }
         }
+        
+    }
+    public int getAtk(){
+        return atk;
+    }
+    public int getDef(){
+        return def;
+    }
+    public double getHealth(){
+        return health;
+    }
+    public int[] getDmg(){
+        return dmg;
+    }
+    public void setAtk(int atk){
+        this.atk=atk;
+    }
+    public void setDef(int def){
+        this.def=def;
+    }
+    public void setHealth(double health){
+        this.health=health;
+    }
+    public void setDmg(int[] dmg){
+        this.dmg=dmg;
     }
     
 }

@@ -10,8 +10,8 @@ package com.mycompany.test;
  */
 public class Player extends Creature {
 
-    double maxHealth = health;
-    int countHeal = 0;
+    private double maxHealth = getHealth();
+    private int countHeal = 0;
 
     public Player(int atk, int def, int health,int[] dmg) {
         super(atk, def, health,dmg);
@@ -20,11 +20,11 @@ public class Player extends Creature {
         
         countHeal++;
         if(countHeal<=4){
-            health += maxHealth/100*30;
-            if(health>maxHealth){
-                health = maxHealth;
+            setHealth(getHealth()+(maxHealth/100)*30);
+            if(getHealth()>maxHealth){
+                setHealth(maxHealth);
             }
-            System.out.println("Вы исцелены, ваше здоровье равно: " + health);
+            System.out.println("Вы исцелены, ваше здоровье равно: " + getHealth());
         }
         else{
             System.out.println("Вы больше не можете исцеляться");
