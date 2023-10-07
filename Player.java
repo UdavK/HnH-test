@@ -10,7 +10,7 @@ package com.mycompany.test;
  */
 public class Player extends Creature {
 
-    int maxHealth = health;
+    double maxHealth = health;
     int countHeal = 0;
 
     public Player(int atk, int def, int health,int[] dmg) {
@@ -20,7 +20,7 @@ public class Player extends Creature {
         
         countHeal++;
         if(countHeal<=4){
-            health +=maxHealth/100 * 30;
+            health += maxHealth/100*30;
             if(health>maxHealth){
                 health = maxHealth;
             }

@@ -9,10 +9,10 @@ package com.mycompany.test;
  * @author david
  */
 public class Goblin extends Creature {
-    int atk = 5;
-    int def = 3;
-    int health = 10;
-    int[] dmg = {2,3,4,5,6};
+    
+    public Goblin(int atk, int def, int health,int[] dmg) {
+        super(atk, def, health,dmg);
+    }
     
     
     

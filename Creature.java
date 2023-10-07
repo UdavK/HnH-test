@@ -13,9 +13,9 @@ import java.util.Random;
 public class Creature {
     int atk;
     int def;
-    int health;
+    double health;
     
-    Creature(int atk,int def, int health, int[]dmg){
+    Creature(int atk,int def, double health, int[]dmg){
         this.dmg=dmg;
         this.atk=atk;
         this.def=def;
@@ -28,35 +28,34 @@ public class Creature {
         
     
     int[] dmg;
-    void Damage(Creature npc) {
+    void Damage(Creature npc) throws Exception {
+        
         if (this.health<=0){
             System.out.println("YOU DIED!");
         }
         else{
             int modAtk = atk-(npc.def+1);
         
-        System.out.println("Кубиков брошено: "+ modAtk);
+            System.out.println("Кубиков брошено: "+ modAtk);
         
         
-        for(int i = 0; i<modAtk;i++){
-            int rnd = 1 + (int)(Math.random()*6);
+            for(int i = 0; i<modAtk;i++){
+                int rnd = 1 + (int)(Math.random()*6);
             
-            if (rnd ==5 || rnd ==6){
-                Random rn = new Random();
-                int damageCount = rn.nextInt(dmg[4] - dmg[0] + 1) + dmg[0];
-
-                System.out.println(damageCount);
-                npc.health -=damageCount;
-                System.out.println("Атака удачна, нанесено "+ damageCount + " урона!");
-                if (npc.health  <= 0){
-                    System.out.println("Цель побеждена!");
+                if (rnd ==5 || rnd ==6){
+                    Random rn = new Random();
+                    int damageCount = rn.nextInt(dmg[4] - dmg[0] + 1) + dmg[0];
+                    npc.health -=damageCount;
+                    System.out.println("Атака удачна, нанесено "+ damageCount + " урона!");
+                    if (npc.health  <= 0){
+                        System.out.println("Цель побеждена!");
+                    }
+                    break;
                 }
-                break;
+                else{
+                    System.out.println("Не получилось(((");
+                }
             }
-            else{
-                System.out.println("Не получилось(((");
-            }
-        }
         }
     }
     
